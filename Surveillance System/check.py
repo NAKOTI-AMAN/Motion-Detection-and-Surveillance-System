@@ -1,29 +1,14 @@
-import time
+"""Lightweight wrapper to run the main surveillance loop.
 
-import cv2
-import serial
+This file used to contain a quick serial+camera check. The
+implementation has been modularized: serial handling now lives
+in `main.py` and camera/recording is in `helpers/camera.py`.
 
-ser = serial.Serial('COM9', 115200)   # set correct COM port
+Run this file to start the main surveillance loop (same behavior
+as the previous quick-check script).
+"""
 
-while True:
-    data = ser.readline().decode().strip()
+from main import main
 
-
-    if data == "MOTION":
-        print("Motion Detected — Recording video for 10 seconds")
-
-        cap = cv2.VideoCapture(0)
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        out = cv2.VideoWriter("intruder.mp4", fourcc, 20.0, (640,480))
-
-        start = time.time()
-
-        while time.time() - start < 10:
-            ret, frame = cap.read()
-            out.write(frame)
-
-        cap.release()
-        out.release()
-        print("Recording Saved")
-
-    print("No motion Detected")
+if __name__ == '__main__':
+    main()
