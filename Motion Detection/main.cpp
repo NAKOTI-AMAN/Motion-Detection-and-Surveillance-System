@@ -1,6 +1,6 @@
 #include "mbed.h"
 
-// PIR connected to D2
+// PIR connected to D7
 DigitalIn pirSensor(D7);
 
 // USB serial output
