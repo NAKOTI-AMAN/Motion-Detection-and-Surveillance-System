@@ -1,0 +1,18 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Environment / secrets
+.env
+
+# Virtual environments
+venv/
+env/
+*/venv/
+"Motion Detection/venv/"
+
+# Editor / OS files
+.vscode/
+.idea/
+*.log
+.DS_Store
