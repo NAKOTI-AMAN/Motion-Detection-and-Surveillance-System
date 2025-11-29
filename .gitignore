@@ -4,6 +4,7 @@ __pycache__/
 
 # Environment / secrets
 .env
+service-account.json
 
 # Virtual environments
 venv/
