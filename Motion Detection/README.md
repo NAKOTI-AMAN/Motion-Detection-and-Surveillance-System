@@ -45,7 +45,7 @@ Establish the hardware connections for your motion detection circuit using the N
 
 
 
-**Refer to the image above for the correct component connections.**
+**Refer to the image circuit_diagram.jpeg for the correct component connections.**
 
 ---
 
