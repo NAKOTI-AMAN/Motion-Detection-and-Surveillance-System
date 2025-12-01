@@ -17,8 +17,8 @@
 - `.env`: environment variables (placeholders included)
 
 **Required Environment Variables**
-- `GOOGLE_SERVICE_ACCOUNT_FILE`: path to service account JSON (required for Drive uploads)
-- `DRIVE_FOLDER_ID`: Optional Drive folder ID to upload into (leave blank to upload to root)
+- `GOOGLE_CLIENT_FILE`: path to client credentials JSON (required for Drive uploads)
+- `DRIVE_FOLDER`: Optional Drive folder to upload into (leave blank to upload to root)
 - `MAILGUN_API_KEY`: Mailgun private API key
 - `MAILGUN_DOMAIN`: Mailgun domain (e.g. `mg.example.com`)
 - `MAILGUN_FROM`: From address for alerts (e.g. `Alert <alerts@mg.example.com>`)
@@ -35,11 +35,11 @@ python -m pip install -r requirements.txt
 ```
 
 2. Configure secrets and values in `.env` (do not commit `.env`):
-- Place your Google service account JSON somewhere safe and set `GOOGLE_SERVICE_ACCOUNT_FILE` to its path.
-- Share the Drive folder with the service account `client_email` or set `DRIVE_FOLDER_ID` to a folder the service account can access.
+- Place your Google client credentials JSON somewhere safe and set `GOOGLE_CLIENT_FILE` to its path.
+- Add your `client_email` to test user in Oauth consent screen.
 - Set Mailgun settings (`MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM`) and `ALERT_TO_EMAIL`.
 
-3. Note: `service-account.json` is ignored in `.gitignore` to prevent accidental commits.
+3. Note: `credentials.json` and `token.json` is ignored in `.gitignore` to prevent accidental commits.
 
 **Run**
 - From Windows `cmd.exe` in the `Surveillance System` folder:
@@ -54,7 +54,6 @@ python main.py
 - If running headless (no GUI), the preview is automatically disabled and recording continues.
 
 **Troubleshooting**
-- Drive upload errors (403/permission issues): ensure the service account JSON `client_email` has access to the target Drive folder (share the folder with that email).
 - Serial port errors: confirm the correct COM port and baud rate, and that the device sends a newline-terminated `MOTION` line.
 - Mailgun errors: verify API key and domain are correct and that Mailgun account is configured to send to the recipient.
 

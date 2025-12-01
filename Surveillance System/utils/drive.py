@@ -13,7 +13,7 @@ def upload_file(file_path: str, mime_type: str = 'video/mp4', folder: Optional[s
 	
 	creds = None
 	SCOPES = ['https://www.googleapis.com/auth/drive']
-	CREDENTIALS_FILE = os.environ.get('GOOGLE_SERVICE_ACCOUNT_FILE', 'credentials.json')
+	CREDENTIALS_FILE = os.environ.get('GOOGLE_CLIENT_FILE', 'credentials.json')
 
 	if not CREDENTIALS_FILE or not os.path.exists(CREDENTIALS_FILE):
 		raise FileNotFoundError("credentials.json path invalid or not found in .env")
