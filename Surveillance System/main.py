@@ -9,7 +9,6 @@ from utils import drive, mail
 
 load_dotenv()
 
-
 def main(port: str = None, baudrate: int = None, record_duration: float = 10.0):
 	"""Main surveillance loop: read serial flag and record when motion is detected.
 
@@ -21,7 +20,7 @@ def main(port: str = None, baudrate: int = None, record_duration: float = 10.0):
 	"""
 	port = port or os.environ.get('PORT', 'COM9')
 	baudrate = baudrate or int(os.environ.get('BAUDRATE', '115200'))
-	drive_folder = os.environ.get('DRIVE_FOLDER_ID')
+	drive_folder = os.environ.get('DRIVE_FOLDER')
 	alert_to = os.environ.get('ALERT_TO_EMAIL')
 
 	try:
